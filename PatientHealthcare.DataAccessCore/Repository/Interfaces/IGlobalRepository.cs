@@ -10,6 +10,18 @@ namespace PatientHealthcare.DataAccessCore.Repository.Interfaces
 {
     public interface IGlobalRepository
     {
+        Task<TEntity> AddAsync<TEntity>(TEntity entity)
+            where TEntity : class;
+
+        Task<TEntity> UpdateAsync<TEntity>(TEntity entity)
+            where TEntity : class;
+
+        Task<bool> RemoveAsync<TEntity>(TEntity entity)
+            where TEntity : class;
+
+        Task<ICollection<TEntity>> GetAllEntities<TEntity>()
+            where TEntity : class;
+
         Task<IDbContextTransaction> BeginTransactionAsync();
 
         Task<List<CompleteMigration>> CompletedMigrationListAsync();

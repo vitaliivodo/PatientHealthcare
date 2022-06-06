@@ -19,6 +19,75 @@ namespace PatientHealthcare.DataAccessCore.Repository
             this.dataContext = dataContext;
         }
 
+        public virtual async Task<TEntity> AddAsync<TEntity>(TEntity entity)
+            where TEntity : class
+        {
+            entity = entity ?? throw new ArgumentNullException(nameof(entity));
+
+            await this.dataContext.Set<TEntity>().AddAsync(entity);
+
+            try
+            {
+                await this.dataContext.SaveChangesAsync();
+
+                return entity;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
+
+        public virtual async Task<TEntity> UpdateAsync<TEntity>(TEntity entity)
+            where TEntity : class
+        {
+            entity = entity ?? throw new ArgumentNullException(nameof(entity));
+
+            this.dataContext.Update(entity);
+
+            try
+            {
+                await this.dataContext.SaveChangesAsync();
+
+                return entity;
+            }
+            catch (DbUpdateException ex)
+            {
+                ex.Entries[0].Reload();
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public virtual async Task<bool> RemoveAsync<TEntity>(TEntity entity)
+            where TEntity : class
+        {
+            entity = entity ?? throw new ArgumentNullException(nameof(entity));
+
+            this.dataContext.Remove(entity);
+
+            try
+            {
+                return await this.dataContext.SaveChangesAsync() > 0;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public virtual async Task<ICollection<TEntity>> GetAllEntities<TEntity>()
+            where TEntity : class
+        {
+            return await this.dataContext.Set<TEntity>().ToListAsync();
+        }
+
+        #region Migrations
+
         public async Task<IDbContextTransaction> BeginTransactionAsync()
         {
             return await this.dataContext.Database.BeginTransactionAsync(default(CancellationToken));
@@ -44,5 +113,7 @@ namespace PatientHealthcare.DataAccessCore.Repository
                 throw;
             }
         }
+
+        #endregion
     }
 }

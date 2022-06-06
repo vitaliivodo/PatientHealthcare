@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PatientHealthcare.DataAccessCore.Repository.Interfaces
+namespace PatientHealthcare.DataAccessCore.Services.Interfaces
 {
-    public interface IPatientRepository : IGlobalRepository
+    public interface IPatientService
     {
     }
 }
