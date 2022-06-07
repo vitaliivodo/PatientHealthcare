@@ -4,6 +4,7 @@ using PatientHealthcare.DataAccessCore.Services.Interfaces;
 
 namespace PatientHealthcare.Controllers
 {
+    [Route("api/patient")]
     public class PatientController : Controller
     {
         private readonly IPatientService patientService;
@@ -19,6 +20,29 @@ namespace PatientHealthcare.Controllers
         {
             // Todo mapper
             return null;
+        }
+
+        [HttpGet]
+        [Route("GetAllPatients")]
+        public async Task<IActionResult> GetAllPatientsAsync()
+        {
+            try
+            {
+                var patients = await this.patientService.GetAllPatientsAsync();
+
+                if (!Equals(patients, null))
+                {
+                    return this.Ok(patients);
+                }
+                else
+                {
+                    return this.BadRequest("Something wrong to get all patients.");
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         [HttpPost]

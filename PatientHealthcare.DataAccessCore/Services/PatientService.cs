@@ -28,6 +28,13 @@
             return await this.patientRepository.UpdateAsync(clinicPatient);
         }
 
+        public async Task<List<ClinicPatient>> GetAllPatientsAsync()
+        {
+            var patients = await this.patientRepository.GetAllEntities<ClinicPatient>();
+
+            return patients.ToList();
+        }
+
         public async Task<bool> RemovePatientAsync(ClinicPatient clinicPatient)
         {
             return await this.patientRepository.RemoveAsync(clinicPatient);
