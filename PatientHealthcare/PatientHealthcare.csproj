@@ -36,4 +36,8 @@
     <ProjectReference Include="..\PatientHealthcare.DataAccessCore\PatientHealthcare.DataAccessCore.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ClientApp\" />
+  </ItemGroup>
+
 </Project>
