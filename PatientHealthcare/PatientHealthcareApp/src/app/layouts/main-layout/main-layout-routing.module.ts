@@ -7,7 +7,8 @@ const routes: Routes = [
     path: '',
     component: MainLayoutComponent,
     children: [
-      { path: 'home', loadChildren: () => import('../../modules/main-page/main-page.module').then(s => s.MainPageModule) }
+      { path: 'home', loadChildren: () => import('../../modules/main-page/main-page.module').then(s => s.MainPageModule) },
+      { path: 'profile-page', loadChildren: () => import('../../modules/profile-page/profile-page.module').then(s => s.ProfilePageModule) }
     ]
   }
 ];

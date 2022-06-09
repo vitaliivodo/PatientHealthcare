@@ -1,7 +1,20 @@
+.search {
+    display: block;
+    margin: auto;
+    margin-top: 40px;
+    height: 60px;
+    width: 50%;
+    background-color: aqua;
+    border-radius: 5px;
+}
+
+.search input {
+}
+
 .patient-div {
     display: block;
     width: 65%;
-    height: 140px;
+    height: 110px;
     margin: auto;
     margin-top: 30px;
     background-color: aquamarine;
@@ -13,7 +26,46 @@
 
 mat-paginator {
     display: block;
-    width: 70%;
+    width: 65%;
     margin: auto;
     margin-top: 20px;
+}
+
+.example-full-width {
+    width: 60%;
+    margin-left: 30px;
+    position: relative;
+    font-size: 26px;
+    bottom: 18px;
+  }
+
+  .search-button {
+    display: inline-block;
+    float: right;
+    height: 60px;
+    width: 200px;
+    font-size: 24px;
+    box-shadow: none;
+    /* background-color: rgb(192, 240, 180); */
+ }
+
+ ::ng-deep .mat-form-field-underline {
+    display: none;
+}
+
+.patient img {
+    display: inline;
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
+
+.patient-labels {
+    display: inline;
+    position: relative;
+    left: 30px;
+}
+
+.patient-labels label {
+    font-size: 24px;
 }

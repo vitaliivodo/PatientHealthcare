@@ -3,3 +3,20 @@ header {
     height: 100px;
     background-color: aqua;
 }
+
+.header-form {
+    display: block;
+    height: 70px;
+    margin: auto;
+    width: 80%;
+    position: relative;
+    top: 15px;
+    /* background-color: blueviolet; */
+}
+
+.header-form h1 {
+    position: fixed;
+    margin-top: 18px;
+    font-size: 30px;
+    cursor: pointer;
+}

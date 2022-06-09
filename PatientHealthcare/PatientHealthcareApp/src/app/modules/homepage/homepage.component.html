@@ -1,29 +1,22 @@
 <div>
+    <div class="search">
+        <mat-form-field floatLabel="never" class="example-full-width">
+            <input matInput placeholder="Search..." >
+        </mat-form-field>
+        <button class="search-button" mat-raised-button color="primary">Find</button>
+    </div>
     <div *ngFor="let patient of pagedPatients" class="patient-div">
         <div class="patient">
-            <h1>{{patient.firstName}}</h1>
+            <img src="../../../assets/male.png" alt="">
+            <div class="patient-labels">
+                <label for="">{{patient.firstName}} {{patient.secondName}}</label>
+            </div>
         </div>
     </div>
     <mat-paginator [length]="patientsAmount"
               [pageSize]="3"
               [pageSizeOptions]="[3]"
               [pageIndex]="pageIndex"
-              (page)="onChangePage($event)"
-              aria-label="Select page">
+              (page)="onChangePage($event)">
     </mat-paginator>
-    <!-- <div class="patient-div">
-        <div class="patient">
-            <h1>Hello!</h1>
-        </div>
-    </div>
-    <div class="patient-div">
-        <div class="patient">
-            <h1>Hello!</h1>
-        </div>
-    </div>
-    <div class="patient-div">
-        <div class="patient">
-            <h1>Hello!</h1>
-        </div>
-    </div> -->
 </div>

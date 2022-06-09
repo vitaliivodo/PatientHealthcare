@@ -1,0 +1,10 @@
+.profile-form {
+    display: block;
+    margin: auto;
+    width: 70%;
+    height: 100%;
+}
+
+.profile-form img {
+    width: 100px;
+}
