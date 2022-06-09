@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PatientHealthcare.DataAccessCore.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,8 @@ namespace PatientHealthcare.DataAccessCore.Repository.Interfaces
 {
     public interface IPatientRepository : IGlobalRepository
     {
+        Task<List<ClinicPatient>> GetPaginatedPatientsAsync(int pageIndex, int pageSize);
+
+        Task<int> GetAllPatientsAmount();
     }
 }

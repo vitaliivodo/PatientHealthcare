@@ -12,7 +12,7 @@ namespace PatientHealthcare.DataAccessCore.Repository
 {
     public class GlobalRepository : IGlobalRepository
     {
-        private readonly DataContext dataContext;
+        public readonly DataContext dataContext;
 
         public GlobalRepository(DataContext dataContext)
         {

@@ -35,6 +35,16 @@
             return patients.ToList();
         }
 
+        public async Task<int> GetAllPatientsAmount()
+        {
+            return await this.patientRepository.GetAllPatientsAmount();
+        }
+
+        public async Task<List<ClinicPatient>> GetPaginatedPatientsAsync(int pageIndex, int pageSize)
+        {
+            return await this.patientRepository.GetPaginatedPatientsAsync(pageIndex, pageSize);
+        }
+
         public async Task<bool> RemovePatientAsync(ClinicPatient clinicPatient)
         {
             return await this.patientRepository.RemoveAsync(clinicPatient);

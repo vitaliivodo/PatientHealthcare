@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { HomepageRoutingModule } from './homepage-routing.module';
 import { HomepageComponent } from './homepage.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { HomepageComponent } from './homepage.component';
   ],
   imports: [
     CommonModule,
-    HomepageRoutingModule
+    HomepageRoutingModule,
+    MatPaginatorModule
   ],
   exports: [HomepageComponent]
 })

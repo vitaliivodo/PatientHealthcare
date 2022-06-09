@@ -1,12 +1,29 @@
-<div class="patient">
-    <h1>Hello!</h1>
-</div>
-<div class="patient">
-    <h1>Hello!</h1>
-</div>
-<div class="patient">
-    <h1>Hello!</h1>
-</div>
-<div class="patient">
-    <h1>Hello!</h1>
+<div>
+    <div *ngFor="let patient of pagedPatients" class="patient-div">
+        <div class="patient">
+            <h1>{{patient.firstName}}</h1>
+        </div>
+    </div>
+    <mat-paginator [length]="patientsAmount"
+              [pageSize]="3"
+              [pageSizeOptions]="[3]"
+              [pageIndex]="pageIndex"
+              (page)="onChangePage($event)"
+              aria-label="Select page">
+    </mat-paginator>
+    <!-- <div class="patient-div">
+        <div class="patient">
+            <h1>Hello!</h1>
+        </div>
+    </div>
+    <div class="patient-div">
+        <div class="patient">
+            <h1>Hello!</h1>
+        </div>
+    </div>
+    <div class="patient-div">
+        <div class="patient">
+            <h1>Hello!</h1>
+        </div>
+    </div> -->
 </div>

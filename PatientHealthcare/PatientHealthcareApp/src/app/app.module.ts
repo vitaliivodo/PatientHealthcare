@@ -1,9 +1,11 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainLayoutModule } from './layouts/main-layout/main-layout.module';
+
 
 @NgModule({
   declarations: [
@@ -12,7 +14,8 @@ import { MainLayoutModule } from './layouts/main-layout/main-layout.module';
   imports: [
     BrowserModule,
     MainLayoutModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

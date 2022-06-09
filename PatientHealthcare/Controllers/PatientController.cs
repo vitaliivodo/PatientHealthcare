@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PatientHealthcare.BusinessCore.Helper;
 using PatientHealthcare.BusinessCore.Model;
 using PatientHealthcare.DataAccessCore.Services.Interfaces;
 
@@ -37,6 +38,52 @@ namespace PatientHealthcare.Controllers
                 else
                 {
                     return this.BadRequest("Something wrong to get all patients.");
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        [HttpGet]
+        [Route("GetAllPatientsAmount")]
+        public async Task<IActionResult> GetAllPatientsAmountAsync()
+        {
+            try
+            {
+                var amount = await this.patientService.GetAllPatientsAmount();
+
+                if (!Equals(amount, null))
+                {
+                    return this.Ok(amount);
+                }
+                else
+                {
+                    return this.BadRequest("Something wrong to get amount of patients.");
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        [HttpPost]
+        [Route("GetPaginatedPatients")]
+        public async Task<IActionResult> GetPagedPatientsAsync([FromBody] PageRequestHelper pageRequestHelper)
+        {
+            try
+            {
+                var patients = await this.patientService.GetPaginatedPatientsAsync(pageRequestHelper.PageIndex, pageRequestHelper.PageSize);
+
+                if (!Equals(patients, null))
+                {
+                    return this.Ok(patients);
+                }
+                else
+                {
+                    return this.BadRequest("Something wrong to get paged patients.");
                 }
             }
             catch (Exception)

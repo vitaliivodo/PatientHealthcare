@@ -1,7 +1,19 @@
+.patient-div {
+    display: block;
+    width: 65%;
+    height: 140px;
+    margin: auto;
+    margin-top: 30px;
+    background-color: aquamarine;
+}
+
 .patient {
-    display: table-cell;
-    margin-top: 100px;
-    margin-left: 100px;
-    width: 400px;
-    height: 100px;
+    display: block;
+}
+
+mat-paginator {
+    display: block;
+    width: 70%;
+    margin: auto;
+    margin-top: 20px;
 }
