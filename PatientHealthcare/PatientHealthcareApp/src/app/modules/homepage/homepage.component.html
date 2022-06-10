@@ -5,7 +5,7 @@
         </mat-form-field>
         <button class="search-button" mat-raised-button color="primary">Find</button>
     </div>
-    <div *ngFor="let patient of pagedPatients" class="patient-div">
+    <div *ngFor="let patient of pagedPatients" class="patient-div" (click)="goToProfilePage(patient.patientId)">
         <div class="patient">
             <img src="../../../assets/male.png" alt="">
             <div class="patient-labels">

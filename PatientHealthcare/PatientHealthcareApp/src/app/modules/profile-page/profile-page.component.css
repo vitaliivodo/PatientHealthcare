@@ -1,10 +1,29 @@
 .profile-form {
     display: block;
     margin: auto;
-    width: 70%;
+    margin-top: 100px;
+    width: 50%;
     height: 100%;
 }
 
 .profile-form img {
+    display: block;
+    margin: auto;
     width: 100px;
+    margin-bottom: 15px;
+}
+
+.profile-form label {
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+.profile-name-labels {
+    text-align: center;
+}
+
+.profile-form-info {
+    margin-top: 30px;
+    margin-left: 30px;
+    text-align: center;
 }

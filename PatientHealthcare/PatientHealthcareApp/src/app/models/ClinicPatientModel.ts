@@ -5,7 +5,7 @@ export class ClinicPatientModel {
         public patientId: string,
         public firstName: string,
         public secondName: string,
-        public genderType: GenderType,
+        public genderType: Number,
         public birthDate: Date,
         public city: string,
         public country: string,

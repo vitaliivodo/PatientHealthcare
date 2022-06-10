@@ -1,6 +1,7 @@
 import { NumberInput } from '@angular/cdk/coercion';
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { Router } from '@angular/router';
 import { ClinicPatientModel } from 'src/app/models/ClinicPatientModel';
 import { PageRequestModel } from 'src/app/models/PageRequestModel';
 import { PatientService } from 'src/app/services/patient.service';
@@ -17,7 +18,8 @@ export class HomepageComponent implements OnInit {
   pageSize: NumberInput = 3;
   patientsAmount: number = 0;
 
-  constructor(private patientService: PatientService
+  constructor(private patientService: PatientService,
+              private router: Router
 
   ) { }
 
@@ -40,5 +42,9 @@ export class HomepageComponent implements OnInit {
       this.pagedPatients = clinicPatients;
       this.pagedPatients = [...this.pagedPatients];
     });
+  }
+
+  goToProfilePage(patientId: string){
+    this.router.navigate(['/profile-page'], { state: {patientId: patientId} });
   }
 }

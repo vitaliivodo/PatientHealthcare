@@ -25,4 +25,8 @@ export class PatientService {
   getPatientsAmount():  Observable<number> {
     return this.http.get<number>(this.backUrl + 'GetAllPatientsAmount/');
   }
+
+  getPatientById(patietnId: string): Observable<ClinicPatientModel> {
+    return this.http.get<ClinicPatientModel>(this.backUrl + 'GetPatientById/' + patietnId);
+  }
 }

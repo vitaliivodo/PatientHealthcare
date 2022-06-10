@@ -12,5 +12,7 @@ namespace PatientHealthcare.DataAccessCore.Repository.Interfaces
         Task<List<ClinicPatient>> GetPaginatedPatientsAsync(int pageIndex, int pageSize);
 
         Task<int> GetAllPatientsAmount();
+
+        Task<ClinicPatient> GetPatientById(string patientId);
     }
 }

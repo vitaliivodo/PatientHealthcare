@@ -17,6 +17,8 @@ namespace PatientHealthcare.DataAccessCore.Services.Interfaces
 
         Task<List<ClinicPatient>> GetPaginatedPatientsAsync(int pageIndex, int pageSize);
 
+        Task<ClinicPatient> GetPatientByIdAsync(string patientId);
+
         Task<ClinicPatient> UpdatePatientAsync(ClinicPatient clinicPatient);
 
         Task<bool> RemovePatientAsync(ClinicPatient clinicPatient);

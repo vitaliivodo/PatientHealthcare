@@ -49,5 +49,10 @@
         {
             return await this.patientRepository.RemoveAsync(clinicPatient);
         }
+
+        public async Task<ClinicPatient> GetPatientByIdAsync(string patientId)
+        {
+            return await this.patientRepository.GetPatientById(patientId);
+        }
     }
 }

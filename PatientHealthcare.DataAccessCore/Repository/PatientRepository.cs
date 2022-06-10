@@ -24,5 +24,10 @@ namespace PatientHealthcare.DataAccessCore.Repository
         {
             return await this.dataContext.Patients.CountAsync();
         }
+
+        public async Task<ClinicPatient> GetPatientById(string patientId)
+        {
+            return await this.dataContext.Patients.Where(p => p.PatientId.Equals(patientId)).FirstOrDefaultAsync();
+        }
     }
 }

@@ -92,6 +92,29 @@ namespace PatientHealthcare.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("GetPatientById/{patientId}")]
+        public async Task<IActionResult> GetPatientByIdAsync(string patientId)
+        {
+            try
+            {
+                var patient = await this.patientService.GetPatientByIdAsync(patientId);
+
+                if (!Equals(patient, null))
+                {
+                    return this.Ok(patient);
+                }
+                else
+                {
+                    return this.BadRequest("Something wrong to get patient.");
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         [HttpPost]
         [Route("UpdatePatient")]
         public async Task<IActionResult> UpdatePatientAsync([FromBody] ClinicPatientModel patientModel)
